@@ -222,7 +222,7 @@ class Mard {
 
     }
     utel() {
-        // this.stanalNorKordinatner();
+
         var datarkvandakner = this.yntrelVandak(2);
         var xotovvandakner = this.yntrelVandak(4);
         var norVandak = random(datarkvandakner);
@@ -390,7 +390,7 @@ class Vagr {
     bazmanal() {
         this.stanalNorKordinatner();
         var datarkvandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkvandakner);  
+        var norVandak = random(datarkvandakner);
         if (norVandak && this.energy == 15) {
             var norVagr = new Vagr(norVandak[0], norVandak[1]);
             vagrArr.push(norVagr);
@@ -497,19 +497,7 @@ class Qandox {
             this.y = norVandak[1];
         }
     }
-    // sharjvel() {
-    //     this.stanalNorKordinatner()
-    //     this.energy -= 1;
-    //     var datarkvandakner = this.yntrelVandak(0, 1);
-    //     var norVandak = random(datarkvandakner);
-    //     if (norVandak) {
-    //         matrix[norVandak[1]][norVandak[0]] = 7;
-    //         matrix[this.y][this.x] = 0;
-    //         this.x = norVandak[0];
-    //         this.y = norVandak[1];
-    //     }
 
-    // }
 
     mahanal() {
         for (var i in qandoxarr) {
@@ -602,8 +590,8 @@ class Shinarar {
         for (var i in shinarar) {
             if (this.energy <= 0) {
                 if (this.x == shinarar[i].x && this.y == shinarar[i].y) {
-                    shinarar.splice(i, 1)
-                    matrix[this.y][this.x] = 0
+                    shinarar.splice(i, 1);
+                    matrix[this.y][this.x] = 0;
 
 
                 }
