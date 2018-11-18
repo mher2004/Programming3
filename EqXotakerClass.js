@@ -1,8 +1,8 @@
-class Xotaker extends LivingCreature {
+class EqXotaker extends LivingCreature {
     constructor(x, y) {
         super(x, y);
         this.energy = 8;
-        this.index = 2;
+        this.index = 2.5;
     }
     yntrelVandak(ch) {
         return super.yntrelVandak(ch);
@@ -64,7 +64,11 @@ class Xotaker extends LivingCreature {
                     break;
                 }
             }
-           if (this.energy >= 11) {
+
+            if (this.energy == 10) {
+                this.bazmanal();
+            }
+            else if (this.energy >= 11) {
                 this.energy -= 2;
             }
         }
@@ -74,35 +78,39 @@ class Xotaker extends LivingCreature {
         }
 
     }
-    // bazmanal() {
-    //     if(p.innerText=="Ձմեռ"){
-    //     var datarkvandakner = this.yntrelVandak(0);
-    //     var norVandak = random(datarkvandakner);
-    //     if (norVandak && this.energy >= 10) {
-    //         var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
-    //         xotakerArr.push(norXotaker);
-    //         matrix[norVandak[1]][norVandak[0]] = 2;
-    //         this.energy -= 5;
+    bazmanal() {
+        if(p.innerText=="Ձմեռ"){
+        var datarkvandakner = this.yntrelVandak(0);
+        var norVandak = random(datarkvandakner);
+        var xotakerpvvandak = this.yntrelVandak(2);
+        var Vandakxotakerov = random(xotakerpvvandak);
+        if (norVandak && Vandakxotakerov && this.energy >= 10 ) {
+            var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
+            xotakerArr.push(norXotaker);
+            matrix[norVandak[1]][norVandak[0]] = 2;
+            this.energy -= 5;
 
-    //     }
+        }
         
-    // }
-    // else{
-    //     var datarkvandakner = this.yntrelVandak(0);
-    //     var norVandak = random(datarkvandakner);
-    //     if (norVandak && this.energy >= 10) {
-    //         var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
-    //         xotakerArr.push(norXotaker);
-    //         matrix[norVandak[1]][norVandak[0]] = 2;
-    //         this.energy -= 3;
+    }
+    else{
+        var datarkvandakner = this.yntrelVandak(0);
+        var norVandak = random(datarkvandakner);
+        var xotakerpvvandak = this.yntrelVandak(2);
+        var Vandakxotakerov = random(xotakerpvvandak);
+        if (norVandak && Vandakxotakerov && this.energy >= 10 ) {
+            var norXotaker = new Xotaker(norVandak[0], norVandak[1]);
+            xotakerArr.push(norXotaker);
+            matrix[norVandak[1]][norVandak[0]] = 2;
+            this.energy -= 3;
 
-    //     }
-    // }
-    // }
+        }
+    }
+    }
 
 
     mahanal() {
-        for (var i in xotakerArr) {
+        for (var i in eqxotakerArr) {
             if (this.energy <= 0) {
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) {
                     matrix[this.y][this.x] = 0;

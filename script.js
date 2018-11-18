@@ -1,4 +1,25 @@
-
+var matrixf=[
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+]
 // var matrix = [
 //     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
 //     [1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -31,14 +52,14 @@ var matrix = [
 
 
 // var matrix = [
+//     [1, 1, 1, ],
+//     [1, 2, 1, ],
+//     [1, 1, 1, ],
+//     [1, 1, 1, ],
+//     [1, 1, 1, ],
+//     [2, 1, 1, ],
+//     [1, 1, 1, ],
 //     [1, 1, 0, ],
-//     [1, 2, 0, ],
-//     [1, 1, 0, ],
-//     [1, 1, 0, ],
-//     [1, 0, 4, ],
-//     [2, 1, 0, ],
-//     [1, 2, 0, ],
-//     [1, 2, 0, ],
 //     [1, 1, 0, ],
 //     [0, 0, 0, ],
 //     [0,0, 0, ],
@@ -50,17 +71,19 @@ var aaa = false;
 var side = 20;
 var grassArr = [];
 var xotakerArr = [];
+var eqxotakerArr=[];
 var vagrArr = [];
 var mardArr = [];
 var shinarar = [];
 var qandoxarr = [];
-var ab = 30;
+var ab = 20;
+var final=0;
 function setup() {
 
     for (var y = 0; y < ab; y++) {
         matrix.push([])
         for (var x = 0; x < ab; x++) {
-            matrix[y][x] = random([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 5, 6, 7])
+            matrix[y][x] = random([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,2.5,2.5, 4, 4, 5, 6, 7])
         }
     }
 
@@ -68,7 +91,6 @@ function setup() {
 
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
-
     for (var y = 0; y < matrix.length; ++y) {
         for (var x = 0; x < matrix[y].length; ++x) {
             if (matrix[y][x] == 1) {
@@ -102,8 +124,10 @@ function setup() {
 }
 
 function draw() {
-
-    frameRate(100);
+    if(final<=601){
+final++;
+    }
+    frameRate(60);
     // for (var y = 0; y < matrix.length; y++) {
     //     for (var x = 0; x < matrix[y].length; x++) {
 
@@ -141,8 +165,22 @@ function draw() {
     //         }
     //     }
     // }
-
-    function exanak() {
+    if(final>=600){
+        var p = document.getElementById("p");
+        p.innerText = "The End";
+        for (var i = 0; i < matrixf.length; i++) {
+            for (var j = 0; j < matrixf[i].length; j++) {
+                if (matrixf[i][j] == 0) {
+                    fill("black");
+                    rect(j * side, i * side, side, side);
+                } else if (matrixf[i][j] == 1) {
+                    fill("white");
+                    rect(j * side, i * side, side, side);
+                }
+            }
+        }
+    }
+    else{
         var p = document.getElementById("p");
         if (frameCount % 90 >= 0 && frameCount % 90 < 25) {
             for (var i = 0; i < matrix.length; i++) {
@@ -278,6 +316,10 @@ function draw() {
                xotakerArr[i].utel();
        
            }
+           for (var i in eqxotakerArr) {
+            xotakerArr[i].utel();
+    
+        }
            for (var i in vagrArr) {
                vagrArr[i].utel();
                vagrArr[i].sharjvel();
@@ -338,13 +380,13 @@ function draw() {
         
             }
         }
-        
     }
 
 
 
-    exanak();
-
+// if(final<500){
+//     exanak();
+// }
 
     // for (var i in grassArr) {
     //     grassArr[i].bazmanal();
