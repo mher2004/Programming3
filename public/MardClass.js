@@ -1,13 +1,12 @@
-class Vagr extends LivingCreature {
+class Mard extends LivingCreature {
     constructor(x, y) {
         super(x, y);
-        this.energy = 10;
-        this.index = 4;
+        this.energy = 20;
+        this.index = 5;
     }
     yntrelVandak(ch) {
         return super.yntrelVandak(ch);
     }
-
     stanalNorKordinatner() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -28,69 +27,74 @@ class Vagr extends LivingCreature {
         var xotovvandakner = this.yntrelVandak(1);
         var norVandakxotov = random(xotovvandakner);
         if (norVandakxotov) {
-            matrix[this.y][this.x] = 0;
-            matrix[norVandakxotov[1]][norVandakxotov[0]] = 4;
-            this.x = norVandakxotov[0];
-            this.y = norVandakxotov[1];
             for (var i in grassArr) {
                 if (this.x == grassArr[i].x && this.y == grassArr[i].y) {
                     grassArr.splice(i, 1);
                     break;
                 }
             }
+            matrix[this.y][this.x] = 0;
+            matrix[norVandakxotov[1]][norVandakxotov[0]] = 5;
+            this.x = norVandakxotov[0];
+            this.y = norVandakxotov[1];
         }
         else if (norVandak) {
             matrix[this.y][this.x] = 0;
-            matrix[norVandak[1]][norVandak[0]] = 4;
+            matrix[norVandak[1]][norVandak[0]] = 5;
             this.x = norVandak[0];
             this.y = norVandak[1];
         }
-
-
     }
     utel() {
         this.stanalNorKordinatner();
         var datarkvandakner = this.yntrelVandak(2);
+        var xotovvandakner = this.yntrelVandak(4);
         var norVandak = random(datarkvandakner);
+        var norVandakxotov = random(xotovvandakner);
+        if (norVandakxotov) {
+            for (var i in vagrArr) {
+                if (this.x == vagrArr[i].x && this.y == vagrArr[i].y) {
+                    vagrArr.splice(i, 1);
+                    break;
+                }
+            }
+            matrix[this.y][this.x] = 0;
+            matrix[norVandakxotov[1]][norVandakxotov[0]] = 5;
+            this.x = norVandakxotov[0];
+            this.y = norVandakxotov[1];
+            this.energy += 4;
+        }
         if (norVandak) {
             for (var i in xotakerArr) {
-                if (norVandak[0] == xotakerArr[i].x && norVandak[1] == xotakerArr[i].y) {
+                if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) {
                     xotakerArr.splice(i, 1);
                     break;
                 }
             }
-            matrix[norVandak[1]][norVandak[0]] = 4;
             matrix[this.y][this.x] = 0;
+            matrix[norVandak[1]][norVandak[0]] = 5;
             this.x = norVandak[0];
             this.y = norVandak[1];
             this.energy += 2;
 
         }
     }
-
-    bazmanal() {
-        this.stanalNorKordinatner();
-        var datarkvandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkvandakner);
-        if (norVandak && this.energy == 15) {
-            var norVagr = new Vagr(norVandak[0], norVandak[1]);
-            vagrArr.push(norVagr);
-            matrix[norVandak[1]][norVandak[0]] = 4;
-            this.energy -= 3;
-        }
-
-    }
-
     mahanal() {
-        for (var i in vagrArr) {
+        for (var i in mardArr) {
             if (this.energy <= 0) {
-                if (this.x == vagrArr[i].x && this.y == vagrArr[i].y) {
+                if (this.x == mardArr[i].x && this.y == mardArr[i].y) {
                     matrix[this.y][this.x] = 0;
-                    vagrArr.splice(i, 1);
+                    mardArr.splice(i, 1);
+                    break;
+                }
+            }
+           else if (this.energy >= 50) {
+                if (this.x == mardArr[i].x && this.y == mardArr[i].y) {
+                    matrix[this.y][this.x] = 0;
+                    mardArr.splice(i, 1);
                     break;
                 }
             }
         }
     }
-
 }
