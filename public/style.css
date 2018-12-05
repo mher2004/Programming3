@@ -206,8 +206,9 @@ li.dropdown {
     float: left;
 }
 .statis{
-margin: left;
-float: left;
+	margin-left: 5px;
+	float: left;
+	background-color: white;
 }
 
  #defaultCanvas0 {
